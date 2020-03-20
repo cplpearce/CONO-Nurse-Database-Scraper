@@ -1,11 +1,11 @@
 # CONO-Nurse-Database-Scraper
-#### Pulls healthcare specialists information from the Ontario public health care worker resgistry to collate retired/inactive specialists whom could add to the efforts of fighting COVID-19
+ Pulls healthcare specialists information from the Ontario public health care worker resgistry to collate retired/inactive specialists whom could add to the efforts of fighting COVID-19
 
-#### Pulls all active/retired nurses from https://registry.cno.org/
-
+ Database: https://registry.cno.org/
+ 
 #### Requires Selenium
 
-#### import block:
+##### import block:
 ```
 from selenium import webdriver 
 from selenium.webdriver.common.by import By 
@@ -16,3 +16,5 @@ import time
 import json
 import re
 ```
+##### View JSON in proper format here: http://jsonviewer.stack.hu/
+Open page, paste in JSON, and hit the "Format" button
