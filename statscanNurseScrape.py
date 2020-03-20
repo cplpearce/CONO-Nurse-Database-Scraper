@@ -5,7 +5,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 import time
 import json
-import bs4
 import re
 
 option = webdriver.ChromeOptions()
