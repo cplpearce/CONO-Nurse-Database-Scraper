@@ -4,8 +4,9 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC 
 from selenium.common.exceptions import TimeoutException
 import time
-import json
+import ujson
 import re
+import os
 
 option = webdriver.ChromeOptions()
 option.add_argument("--incognito")
@@ -47,10 +48,12 @@ try:
     # test RN nums
     listKnownNums = [14056148, 14056158]
 
-    with open("RegisteredNurses.json", "a") as jsonDoc:
+    with open("RegisteredNurses.json", "w") as jsonDoc:
+
+        jsonDoc.write("[\n")
    
         # for number in our list
-        for regNum in range(14030010, 99999999):
+        for regNum in range(14030032, 99999999):
 
             try:
 
@@ -141,9 +144,10 @@ try:
                         continue
 
                     #   W R I T E   T O   D I C T   #
-
+                    
                     print(medicalStaff[staffNum])
-                    json.dump(medicalStaff[staffNum], jsonDoc)
+                    ujson.dump(medicalStaff[staffNum], jsonDoc)
+                    jsonDoc.write(",")
 
                     #   R E S T A R T   #
 
@@ -158,4 +162,11 @@ except TimeoutException:
     browser.quit()
 
 finally:
+    with open("RegisteredNurses.json", "a") as jsonDoc:
+        jsonDoc.write("\n]")
+        jsonDoc.seek(-1, os.SEEK_END)
+        re.sub(",", "", jsonDoc)
+        print(line.rstrip())
+
+
     browser.quit()
