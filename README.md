@@ -3,7 +3,9 @@
 
  Database: https://registry.cno.org/
  
-#### Requires Selenium
+#### Requires Selenium    pip install selenium
+#### Requires ujson       pip install ujson
+#### Requires a chromedriver executable
 
 ##### import block:
 ```
@@ -13,7 +15,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC 
 from selenium.common.exceptions import TimeoutException
 import time
-import json
+import ujson
 import re
 ```
 ##### View JSON in proper format here: http://jsonviewer.stack.hu/
